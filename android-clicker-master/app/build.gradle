@@ -1,16 +1,19 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "23.0.3"
+    compileSdk 34
 
     defaultConfig {
         applicationId "xyz.oguzcelik.clicker"
-        minSdkVersion 15
-        targetSdkVersion 24
+        minSdk 21
+        targetSdk 34
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -20,10 +23,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.2.0'
-    compile 'com.google.firebase:firebase-database:9.0.0'
-}
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
 
-apply plugin: 'com.google.gms.google-services'
+
+    implementation platform('com.google.firebase:firebase-bom:33.11.0')
+
+
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-auth'
+}

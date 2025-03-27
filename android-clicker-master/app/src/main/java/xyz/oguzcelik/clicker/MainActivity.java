@@ -18,8 +18,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Initialize Firebase
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("replace-with-your-own");
+        databaseReference = firebaseDatabase.getReference("swipe_direction"); // UPDATED
 
         swipeLayout = (FrameLayout) findViewById(R.id.swipe_layout);
 
